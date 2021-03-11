@@ -40,7 +40,7 @@ dependencies {
 
     compile 'com.mindorks.android:placeholderview:1.0.3'
     annotationProcessor 'com.mindorks.android:placeholderview-compiler:1.0.3'
-
+    implementation 'com.google.code.gson:gson:2.8.6'
     // RecyclerView dependency is added to override the
     // default 25.4.1 RecyclerView dependency used by placeholderview.
     // If you are using the support libraries other than 25.x in the project
