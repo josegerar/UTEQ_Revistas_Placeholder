@@ -2,6 +2,7 @@ package com.example.uteq.revistasplaceholder;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 
@@ -9,6 +10,8 @@ import com.example.uteq.revistasplaceholder.model.Revista;
 import com.example.uteq.revistasplaceholder.webservice.Asynchtask;
 import com.example.uteq.revistasplaceholder.webservice.WebService;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.mindorks.placeholderview.PlaceHolderView;
 
@@ -18,13 +21,14 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements Asynchtask {
+
     PlaceHolderView phvGallery;
-    Type revistaType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,17 +45,24 @@ public class MainActivity extends AppCompatActivity implements Asynchtask {
         phvGallery.getBuilder()
                 .setHasFixedSize(false)
                 .setItemViewCacheSize(10)
-                .setLayoutManager(new GridLayoutManager(this, 3));
-        revistaType = new TypeToken<List<Revista>>() {
-        }.getType();
-
+                .setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
     public void processFinish(String result) throws JSONException {
-        ArrayList<Revista> revistas = new Gson().fromJson(result, revistaType);
-        for (Revista rev : revistas) {
-            phvGallery.addView(new GalleryImage(getApplicationContext(), rev.getPortada()));
+        JSONArray array = new JSONArray(result);
+        ArrayList<Revista> revistas = new ArrayList<>();
+        for (int i = 0; i < array.length(); i++){
+            JSONObject jsonObject = array.getJSONObject(i);
+            Revista revista= new Revista();
+            revista.setAbbreviation(jsonObject.getString("abbreviation"));
+            revista.setDescription(jsonObject.getString("description"));
+            revista.setJournal_id(jsonObject.getString("journal_id"));
+            revista.setJournalThumbnail(jsonObject.getString("journalThumbnail"));
+            revista.setName(jsonObject.getString("name"));
+            revista.setPortada(jsonObject.getString("portada"));
+            revistas.add(revista);
+            phvGallery.addView(new GalleryImage(getApplicationContext(), revista));
         }
     }
 }

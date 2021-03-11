@@ -9,7 +9,6 @@ import org.json.JSONException;
 
 import java.util.Map;
 
-import WebServices.HttpRequest.HttpRequestException;
 
 
 public class WebService extends AsyncTask<String, Long, String> {
@@ -70,7 +69,7 @@ public class WebService extends AsyncTask<String, Long, String> {
             String r= HttpRequest.get(this.url).form(this.datos).body();
             return r;
 
-        } catch (HttpRequestException exception) {
+        } catch (HttpRequest.HttpRequestException exception) {
             Log.e("doInBackground", exception.getMessage());
 
             return "Error HttpRequestException";

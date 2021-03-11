@@ -1,0 +1,262 @@
+[
+  {
+    "issue_id": "82",
+    "volume": "13",
+    "number": "2",
+    "year": "2020",
+    "date_published": "2021-02-19 03:03:20",
+    "title": "Revista Ciencia y Tecnolog\u00eda Julio - Diciembre 2020",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v13i2",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_82_es_ES.jpg"
+  },
+  {
+    "issue_id": "78",
+    "volume": "13",
+    "number": "1",
+    "year": "2020",
+    "date_published": "2020-06-30 00:00:00",
+    "title": "Revista Ciencia y Tecnolog\u00eda Enero - Junio 2020",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v13i1",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_78_es_ES.jpg"
+  },
+  {
+    "issue_id": "77",
+    "volume": "12",
+    "number": "2",
+    "year": "2019",
+    "date_published": "2020-07-09 16:30:36",
+    "title": "Revista Ciencia y Tecnolog\u00eda Julio- Diciembre 2019",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v12i2",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_77_en_US.jpg"
+  },
+  {
+    "issue_id": "76",
+    "volume": "12",
+    "number": "1",
+    "year": "2019",
+    "date_published": "2020-07-09 00:00:00",
+    "title": "Revista Ciencia y Tecnolog\u00eda Enero - Junio 2019",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v12i1",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_76_es_ES.jpg"
+  },
+  {
+    "issue_id": "64",
+    "volume": "11",
+    "number": "2",
+    "year": "2018",
+    "date_published": "2018-12-31 00:00:00",
+    "title": "Revista Ciencia y Tecnolog\u00eda Julio - Diciembre 2018",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v11i2",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_64_es_ES.jpg"
+  },
+  {
+    "issue_id": "62",
+    "volume": "11",
+    "number": "1",
+    "year": "2018",
+    "date_published": "2018-07-03 00:00:00",
+    "title": "Revista Ciencia y Tecnolog\u00eda Enero - Junio 2018",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v11i1",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_62_es_ES.jpg"
+  },
+  {
+    "issue_id": "61",
+    "volume": "10",
+    "number": "2",
+    "year": "2017",
+    "date_published": "2017-12-31 00:00:00",
+    "title": "Julio-Diciembre (2017)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v10i2",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_61_es_ES.jpg"
+  },
+  {
+    "issue_id": "59",
+    "volume": "10",
+    "number": "1",
+    "year": "2017",
+    "date_published": "2017-06-25 00:00:00",
+    "title": "Enero-Junio (2017)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v10i1",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_59_es_ES.jpg"
+  },
+  {
+    "issue_id": "58",
+    "volume": "9",
+    "number": "2",
+    "year": "2016",
+    "date_published": "2017-01-25 00:00:00",
+    "title": "Julio-Diciembre (2016)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v9i2",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_58_es_ES.jpg"
+  },
+  {
+    "issue_id": "36",
+    "volume": "9",
+    "number": "1",
+    "year": "2016",
+    "date_published": "2016-06-30 00:00:00",
+    "title": "Enero-Junio (2016)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v9i1",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_36_es_ES.jpg"
+  },
+  {
+    "issue_id": "34",
+    "volume": "8",
+    "number": "2",
+    "year": "2015",
+    "date_published": "2015-12-31 00:00:00",
+    "title": "Julio-Diciembre (2015)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v8i2",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_34_es_ES.jpg"
+  },
+  {
+    "issue_id": "33",
+    "volume": "8",
+    "number": "1",
+    "year": "2015",
+    "date_published": "2015-06-30 00:00:00",
+    "title": "Enero-Junio (2015)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v8i1",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_33_es_ES.jpg"
+  },
+  {
+    "issue_id": "32",
+    "volume": "7",
+    "number": "2",
+    "year": "2014",
+    "date_published": "2014-12-31 00:00:00",
+    "title": "Julio-Diciembre (2014)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v7i2",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_32_es_ES.jpg"
+  },
+  {
+    "issue_id": "31",
+    "volume": "7",
+    "number": "1",
+    "year": "2014",
+    "date_published": "2014-06-30 00:00:00",
+    "title": "Enero-Junio (2014)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v7i1",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_31_es_ES.jpg"
+  },
+  {
+    "issue_id": "30",
+    "volume": "6",
+    "number": "2",
+    "year": "2013",
+    "date_published": "2013-12-27 00:00:00",
+    "title": "Julio-Diciembre (2013)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v6i2",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_30_es_ES.jpg"
+  },
+  {
+    "issue_id": "29",
+    "volume": "6",
+    "number": "1",
+    "year": "2013",
+    "date_published": "2013-06-30 00:00:00",
+    "title": "Enero-Junio (2013)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v6i1",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_29_es_ES.jpg"
+  },
+  {
+    "issue_id": "28",
+    "volume": "5",
+    "number": "2",
+    "year": "2012",
+    "date_published": "2012-12-31 00:00:00",
+    "title": "Julio-Diciembre (2012)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v5i2",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_28_es_ES.jpg"
+  },
+  {
+    "issue_id": "27",
+    "volume": "5",
+    "number": "1",
+    "year": "2012",
+    "date_published": "2012-06-30 00:00:00",
+    "title": "Enero-Junio (2012)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v5i1",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_27_es_ES.jpg"
+  },
+  {
+    "issue_id": "25",
+    "volume": "4",
+    "number": "2",
+    "year": "2011",
+    "date_published": "2011-12-30 00:00:00",
+    "title": "Julio-Diciembre (2011)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v4i2",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_25_es_ES.jpg"
+  },
+  {
+    "issue_id": "23",
+    "volume": "4",
+    "number": "1",
+    "year": "2011",
+    "date_published": "2011-06-30 00:00:00",
+    "title": "Enero-Junio (2011)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v4i1",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_23_es_ES.jpg"
+  },
+  {
+    "issue_id": "22",
+    "volume": "3",
+    "number": "2",
+    "year": "2010",
+    "date_published": "2010-12-30 00:00:00",
+    "title": "Julio-Diciembre (2010)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v3i2",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_22_es_ES.jpg"
+  },
+  {
+    "issue_id": "21",
+    "volume": "3",
+    "number": "1",
+    "year": "2010",
+    "date_published": "2010-06-30 00:00:00",
+    "title": "Enero-Junio (2010)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v3i1",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_21_es_ES.jpg"
+  },
+  {
+    "issue_id": "20",
+    "volume": "2",
+    "number": "2",
+    "year": "2009",
+    "date_published": "2009-12-30 00:00:00",
+    "title": "Julio-Diciembre (2009)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v2i2",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_20_es_ES.jpg"
+  },
+  {
+    "issue_id": "19",
+    "volume": "2",
+    "number": "1",
+    "year": "2009",
+    "date_published": "2009-06-30 00:00:00",
+    "title": "Enero-Junio (2009)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v2i1",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_19_es_ES.jpg"
+  },
+  {
+    "issue_id": "18",
+    "volume": "1",
+    "number": "2",
+    "year": "2008",
+    "date_published": "2008-12-30 00:00:00",
+    "title": "Julio-Diciembre (2008)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v1i2",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_18_es_ES.jpg"
+  },
+  {
+    "issue_id": "17",
+    "volume": "1",
+    "number": "1",
+    "year": "2008",
+    "date_published": "2008-06-30 00:00:00",
+    "title": "Enero-Junio (2008)",
+    "doi": "http:\/\/doi.org\/10.18779\/cyt.v1i1",
+    "cover": "https:\/\/revistas.uteq.edu.ec\/public\/journals\/2\/cover_issue_17_es_ES.jpg"
+  }
+]
