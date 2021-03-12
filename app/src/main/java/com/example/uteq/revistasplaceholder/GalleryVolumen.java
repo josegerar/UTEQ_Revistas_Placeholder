@@ -80,7 +80,7 @@ public class GalleryVolumen {
     public void onItemClick() {
         Bundle bundle = new Bundle();
         bundle.putString("issue_id", volumen.getIssue_id());
-        Intent intent = new Intent(context, VolumenActivity.class);
+        Intent intent = new Intent(context, ArticulosActivity.class);
         intent.putExtras(bundle);
         context.startActivity(intent);
     }

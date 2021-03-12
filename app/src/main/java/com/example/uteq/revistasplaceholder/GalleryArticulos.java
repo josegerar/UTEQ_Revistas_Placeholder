@@ -4,11 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.uteq.revistasplaceholder.model.Articulo;
 import com.example.uteq.revistasplaceholder.model.Autor;
+import com.example.uteq.revistasplaceholder.model.Galery;
 import com.example.uteq.revistasplaceholder.model.Revista;
+import com.example.uteq.revistasplaceholder.util.Util;
 import com.mindorks.placeholderview.annotations.Animate;
 import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
@@ -52,8 +55,8 @@ public class GalleryArticulos {
         textTituloArticulo.setText(articulo.getTitle());
         String autores = "";
         for (Autor autor: articulo.getAutors()){
-            autores.concat(autor.getNombres());
-            autores.concat(", ");
+            autores = autores.concat(autor.getNombres());
+            autores = autores.concat(", ");
         }
         textAutores.setText(autores);
     }
@@ -76,7 +79,17 @@ public class GalleryArticulos {
 
     @Click(R.id.descargarPDF)
     public void onItemdescargarPDFClick() {
-
+        boolean existe = false;
+        for (Galery galery: articulo.getGaleries()){
+            if (galery.getLabel().equals("PDF")){
+                existe = true;
+                Util.downloadFile(galery.getUrlViewGalley(), "article" + galery.getFile_id(), ".pdf", context);
+            }
+        }
+        if (!existe){
+            Toast.makeText(context, "El archivo solicitado no existe",
+                    Toast.LENGTH_LONG).show();
+        }
     }
 
     @Click(R.id.descargarHTML)

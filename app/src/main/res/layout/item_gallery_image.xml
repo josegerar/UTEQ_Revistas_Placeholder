@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="6dp"
+        style="@style/CardView.Light"
         app:cardElevation="6dp">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -54,7 +55,7 @@
                 android:layout_below="@+id/lblDescription"
                 android:layout_marginTop="15dp"
                 android:layout_toEndOf="@+id/image_view"
-                android:text="Ver articulos"
+                android:text="Ver revista"
                 android:textColor="@color/purple_700"
                 android:textStyle="bold" />
 

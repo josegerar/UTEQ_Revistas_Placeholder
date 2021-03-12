@@ -10,6 +10,7 @@ android:padding="10dp">
     android:id="@+id/card_view_volumen"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    style="@style/CardView.Light"
     app:cardCornerRadius="6dp"
     app:cardElevation="6dp">
     <RelativeLayout

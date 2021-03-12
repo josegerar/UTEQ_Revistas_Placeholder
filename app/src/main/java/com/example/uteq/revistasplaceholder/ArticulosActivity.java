@@ -1,8 +1,10 @@
 package com.example.uteq.revistasplaceholder;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.Manifest;
 import android.os.Bundle;
 
 import com.example.uteq.revistasplaceholder.model.Articulo;
@@ -24,17 +26,27 @@ import java.util.Map;
 public class ArticulosActivity extends AppCompatActivity implements Asynchtask {
 
     PlaceHolderView phvGallery;
+    String issue_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_articulos);
 
+        ActivityCompat.requestPermissions(ArticulosActivity.this,
+                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                1);
+
+        ActivityCompat.requestPermissions(ArticulosActivity.this,
+                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                1);
+
         Bundle bundle = getIntent().getExtras();
-        String issue_id = bundle.getString("issue_id");
+        issue_id = bundle.getString("issue_id");
         Map<String, String> datos = new HashMap<String, String>();
         WebService ws = new WebService("https://revistas.uteq.edu.ec/ws/pubs.php?i_id=" + issue_id, datos, this, this);
         ws.execute("");
+        phvGallery = (PlaceHolderView) findViewById(R.id.phv_gallery);
         phvGallery.getBuilder()
                 .setHasFixedSize(false)
                 .setItemViewCacheSize(10)
