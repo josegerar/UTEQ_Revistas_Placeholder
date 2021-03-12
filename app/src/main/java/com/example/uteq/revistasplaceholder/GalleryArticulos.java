@@ -81,7 +81,7 @@ public class GalleryArticulos {
     public void onItemdescargarPDFClick() {
         boolean existe = false;
         for (Galery galery: articulo.getGaleries()){
-            if (galery.getLabel().equals("PDF")){
+            if (galery.getLabel().toUpperCase().equals("PDF")){
                 existe = true;
                 Util.downloadFile(galery.getUrlViewGalley(), "article" + galery.getFile_id(), ".pdf", context);
             }
@@ -94,6 +94,20 @@ public class GalleryArticulos {
 
     @Click(R.id.descargarHTML)
     public void onItemdescargarHTMLClick() {
-
+        boolean existe = false;
+        for (Galery galery: articulo.getGaleries()){
+            if (galery.getLabel().toUpperCase().equals("HTML")){
+                existe = true;
+                Bundle bundle = new Bundle();
+                bundle.putString("url_document",galery.getUrlViewGalley() );
+                Intent myIntent = new Intent(context, WebViewArticle.class);
+                myIntent.putExtras(bundle);
+                context.startActivity(myIntent);
+            }
+        }
+        if (!existe){
+            Toast.makeText(context, "El archivo solicitado no existe",
+                    Toast.LENGTH_LONG).show();
+        }
     }
 }

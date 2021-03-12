@@ -11,8 +11,12 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.provider.DocumentsContract;
 import android.widget.Toast;
 
+import androidx.core.content.FileProvider;
+
+import com.example.uteq.revistasplaceholder.BuildConfig;
 import com.example.uteq.revistasplaceholder.webservice.Asynchtask;
 
 import java.io.File;
@@ -21,6 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.util.Objects;
 
@@ -132,30 +137,35 @@ public class Util {
 
     //Procedimiento para mostrar el documento PDF generado
     public static void mostrarPDF(String nombPdf, Context context, String url) {
-Util.mostrarMensaje("Visualizando documento", context);
+        Util.mostrarMensaje("Visualizando documento", context);
         // Así va correctamente la dirección
         //String dir = Environment.getExternalStorageDirectory()+ "/Mi App/pdf/" + nombPdf;
+        File file = new File(context.getFilesDir().toString());
+        Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".provider", new File(url));
 
-        File arch = new File(url);
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("application/pdf");
 
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setDataAndType(Uri.fromFile(arch), "application/pdf");
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        try {
-            context.startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            Util.mostrarMensaje("No existe una aplicación para abrir el PDF", context);
-        }
+        // Optionally, specify a URI for the file that should appear in the
+        // system file picker when it loads.
+        intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, Uri.fromFile(new File(url)));
+        context.startActivity(intent);
     }
 
     public static void mostrarMensaje(String mensaje, Context context) {
-        Looper.prepare();//Call looper.prepare()
-        Handler mHandler = new Handler() {
-            public void handleMessage(Message msg) {
-                Toast.makeText(context, mensaje, Toast.LENGTH_LONG);
+
+        Thread thread = new Thread() {
+            public void run() {
+                Looper.prepare();//Call looper.prepare()
+                Handler mHandler = new Handler() {
+                    public void handleMessage(Message msg) {
+                        Toast.makeText(context, mensaje, Toast.LENGTH_LONG);
+                    }
+                };
+                Looper.loop();
             }
         };
-        Looper.loop();
+        thread.start();
     }
 }
