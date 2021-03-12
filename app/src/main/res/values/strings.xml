@@ -8,4 +8,6 @@
     -->
     <string name="hello_world">Hello Square World!</string>
     <string name="ver_articulos">Ver articulos</string>
+    <string name="pdf">PDF</string>
+    <string name="html">HTML</string>
 </resources>
