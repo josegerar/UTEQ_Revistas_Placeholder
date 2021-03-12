@@ -5,12 +5,15 @@ import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.Manifest;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import com.example.uteq.revistasplaceholder.model.Articulo;
 import com.example.uteq.revistasplaceholder.model.Autor;
 import com.example.uteq.revistasplaceholder.model.Galery;
 import com.example.uteq.revistasplaceholder.model.Revista;
+import com.example.uteq.revistasplaceholder.util.FileDownloader;
+import com.example.uteq.revistasplaceholder.util.Util;
 import com.example.uteq.revistasplaceholder.webservice.Asynchtask;
 import com.example.uteq.revistasplaceholder.webservice.WebService;
 import com.mindorks.placeholderview.PlaceHolderView;
@@ -19,11 +22,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ArticulosActivity extends AppCompatActivity implements Asynchtask {
+public class ArticulosActivity extends AppCompatActivity implements Asynchtask, IDownloadFile {
 
     PlaceHolderView phvGallery;
     String issue_id;
@@ -67,7 +72,7 @@ public class ArticulosActivity extends AppCompatActivity implements Asynchtask {
             articulo.setGaleries(this.getGaleries(jsonObject.getJSONArray("galeys")));
 
             articulos.add(articulo);
-            phvGallery.addView(new GalleryArticulos(getApplicationContext(), articulo));
+            phvGallery.addView(new GalleryArticulos(getApplicationContext(), articulo, this));
         }
     }
 
@@ -96,5 +101,42 @@ public class ArticulosActivity extends AppCompatActivity implements Asynchtask {
             autors.add(autor);
         }
         return autors;
+    }
+
+    @Override
+    public void download(String url, String nombre, String ext) {
+        new DownloadFile().execute(url, nombre, ext);
+    }
+
+    private class DownloadFile extends AsyncTask<String, Void, Void> {
+
+        @Override
+        protected Void doInBackground(String... strings) {
+            String fileUrl = strings[0];   // -> http://maven.apache.org/maven-1.x/maven.pdf
+            String fileName = strings[1];  // -> maven.pdf
+            String ext = strings[2];  // -> maven.pdf
+            String extStorageDirectory = getApplicationContext().getFilesDir().toString();
+            File folder = new File(extStorageDirectory, "pdf");
+            if (!folder.exists()) {
+                folder.mkdir();
+            }
+            int count = 0;
+            File file = new File(folder, fileName + count + ext);
+            if (file.exists()) {
+                while (file.exists()) {
+                    count++;
+                    file = new File(folder, fileName + count + ext);
+                }
+            }
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            FileDownloader.downloadFile(fileUrl, file);
+            Util.mostrarPDF(fileName + count + ext, getApplicationContext(), file.toString());
+            return null;
+        }
+
     }
 }

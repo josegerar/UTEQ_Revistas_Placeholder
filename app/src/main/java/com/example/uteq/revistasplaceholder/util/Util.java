@@ -31,21 +31,24 @@ import java.util.Objects;
 
 public class Util {
 
-    public static void downloadFile(String DownloadUrl, Context context, String nombre) {
+    public static void downloadFile(String DownloadUrl, Context context, String nombre, String ext) {
         DownloadManager.Request request1 = new DownloadManager.Request(Uri.parse(DownloadUrl));
         request1.setDescription("Descarga de archivo PDF");   //appears the same in Notification bar while downloading
-        request1.setTitle(nombre);
-        request1.setVisibleInDownloadsUi(true);
+        request1.setTitle(nombre + ext);
+        request1.setVisibleInDownloadsUi(false);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             request1.allowScanningByMediaScanner();
             request1.setNotificationVisibility(DownloadManager.Request.VISIBILITY_HIDDEN);
         }
-        request1.setDestinationInExternalFilesDir(context, "/File", nombre);
+
+
+        request1.setDestinationInExternalFilesDir(context, "/File", nombre + ext);
 
         DownloadManager manager1 = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         Objects.requireNonNull(manager1).enqueue(request1);
         if (DownloadManager.STATUS_SUCCESSFUL == 8) {
+            Util.mostrarPDF(nombre + ext, context, context.getFilesDir() + nombre + ext);
             Toast.makeText(context, "El archivo fue descargado correctamente",
                     Toast.LENGTH_LONG).show();
         }
@@ -140,16 +143,17 @@ public class Util {
         Util.mostrarMensaje("Visualizando documento", context);
         // Así va correctamente la dirección
         //String dir = Environment.getExternalStorageDirectory()+ "/Mi App/pdf/" + nombPdf;
-        File file = new File(context.getFilesDir().toString());
-        Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".provider", new File(url));
+        //File file = new File(context.getFilesDir().toString());
+        //Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".provider", new File(url));
 
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setDataAndType(Uri.fromFile(new File(url)), "application/pdf");
         intent.setType("application/pdf");
 
         // Optionally, specify a URI for the file that should appear in the
         // system file picker when it loads.
-        intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, Uri.fromFile(new File(url)));
+        //intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, );
         context.startActivity(intent);
     }
 

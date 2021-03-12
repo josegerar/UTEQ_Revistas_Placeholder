@@ -2,6 +2,7 @@ package com.example.uteq.revistasplaceholder;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,11 +38,13 @@ public class GalleryArticulos {
 
     private Context context;
     private Articulo articulo;
+    private IDownloadFile iDownloadFile;
 
 
-    public GalleryArticulos(Context context, Articulo articulo) {
+    public GalleryArticulos(Context context, Articulo articulo, IDownloadFile iDownloadFile) {
         this.context = context;
         this.articulo = articulo;
+        this.iDownloadFile = iDownloadFile;
     }
 
     /*
@@ -54,7 +57,7 @@ public class GalleryArticulos {
         // example: load imageView with url image
         textTituloArticulo.setText(articulo.getTitle());
         String autores = "";
-        for (Autor autor: articulo.getAutors()){
+        for (Autor autor : articulo.getAutors()) {
             autores = autores.concat(autor.getNombres());
             autores = autores.concat(", ");
         }
@@ -80,13 +83,16 @@ public class GalleryArticulos {
     @Click(R.id.descargarPDF)
     public void onItemdescargarPDFClick() {
         boolean existe = false;
-        for (Galery galery: articulo.getGaleries()){
-            if (galery.getLabel().toUpperCase().equals("PDF")){
+        for (Galery galery : articulo.getGaleries()) {
+            if (galery.getLabel().toUpperCase().equals("PDF")) {
                 existe = true;
-                Util.downloadFile(galery.getUrlViewGalley(), "article" + galery.getFile_id(), ".pdf", context);
+                //context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(galery.getUrlViewGalley())));
+                //Util.downloadFile(galery.getUrlViewGalley(), context, "article" + galery.getFile_id(), ".pdf");
+                //Util.downloadFile(galery.getUrlViewGalley(), "article" + galery.getFile_id(), ".pdf", context);
+                iDownloadFile.download(galery.getUrlViewGalley(), "article" + galery.getFile_id(), ".pdf");
             }
         }
-        if (!existe){
+        if (!existe) {
             Toast.makeText(context, "El archivo solicitado no existe",
                     Toast.LENGTH_LONG).show();
         }
@@ -95,17 +101,17 @@ public class GalleryArticulos {
     @Click(R.id.descargarHTML)
     public void onItemdescargarHTMLClick() {
         boolean existe = false;
-        for (Galery galery: articulo.getGaleries()){
-            if (galery.getLabel().toUpperCase().equals("HTML")){
+        for (Galery galery : articulo.getGaleries()) {
+            if (galery.getLabel().toUpperCase().equals("HTML")) {
                 existe = true;
                 Bundle bundle = new Bundle();
-                bundle.putString("url_document",galery.getUrlViewGalley() );
+                bundle.putString("url_document", galery.getUrlViewGalley());
                 Intent myIntent = new Intent(context, WebViewArticle.class);
                 myIntent.putExtras(bundle);
                 context.startActivity(myIntent);
             }
         }
-        if (!existe){
+        if (!existe) {
             Toast.makeText(context, "El archivo solicitado no existe",
                     Toast.LENGTH_LONG).show();
         }
