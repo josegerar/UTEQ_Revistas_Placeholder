@@ -1,5 +1,6 @@
 package com.example.uteq.revistasplaceholder;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,10 +11,10 @@ import androidx.cardview.widget.CardView;
 
 import com.bumptech.glide.Glide;
 import com.example.uteq.revistasplaceholder.model.Revista;
+import com.example.uteq.revistasplaceholder.model.Volumen;
 import com.mindorks.placeholderview.annotations.Animate;
 import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
-import com.mindorks.placeholderview.annotations.LongClick;
 import com.mindorks.placeholderview.annotations.NonReusable;
 import com.mindorks.placeholderview.annotations.Position;
 import com.mindorks.placeholderview.annotations.Recycle;
@@ -22,30 +23,31 @@ import com.mindorks.placeholderview.annotations.View;
 
 @NonReusable
 @Animate(Animate.CARD_TOP_IN_DESC)
-@Layout(R.layout.item_gallery_image)
-public class GalleryImage {
+@Layout(R.layout.item_volumen)
+public class GalleryVolumen {
 
-    @View(R.id.card_view)
+    @View(R.id.card_view_volumen)
     CardView cardView;
 
-    @View(R.id.image_view)
+    @View(R.id.image_view_volumen)
     ImageView imageView;
 
-    @View(R.id.lblName)
-    TextView textViewNombre;
+    @View(R.id.textTitle_volumen)
+    TextView textTitle;
 
-    @View(R.id.lblDescription)
-    TextView textViewDescription;
+    @View(R.id.textVolumen)
+    TextView textVolumen;
 
     @Position
     int position;
 
-    private Context context;
-    private Revista revista;
 
-    public GalleryImage(Context context, Revista revista) {
+    private Context context;
+    private Volumen volumen;
+
+    public GalleryVolumen(Context context, Volumen volumen) {
         this.context = context;
-        this.revista = revista;
+        this.volumen = volumen;
     }
 
     /*
@@ -57,10 +59,10 @@ public class GalleryImage {
         // do something here
         // example: load imageView with url image
         Glide.with(context)
-                .load(revista.getPortada())
+                .load(volumen.getCover())
                 .into(imageView);
-        textViewDescription.setText(revista.getDescription());
-        textViewNombre.setText(revista.getName());
+        textTitle.setText(volumen.getTitle());
+        textVolumen.setText(volumen.getVolume());
     }
 
     /*
@@ -74,27 +76,12 @@ public class GalleryImage {
 
     }
 
-    /*
-     * This method is called when the view with id image_view is clicked.
-     * onImageViewClick method could be named anything.
-     */
-//    @Click(R.id.image_view)
-//    public void onImageViewClick() {
-//        // do something
-//    }
-//
-//    @LongClick(R.id.image_view)
-//    public void onImageViewLongClick() {
-//        // do something
-//    }
-
-    @Click(R.id.verarticulos)
+    @Click(R.id.vervolumen)
     public void onItemClick() {
         Bundle bundle = new Bundle();
-        bundle.putString("journal_id", revista.getJournal_id());
+        bundle.putString("issue_id", volumen.getIssue_id());
         Intent intent = new Intent(context, VolumenActivity.class);
         intent.putExtras(bundle);
         context.startActivity(intent);
     }
-
 }
